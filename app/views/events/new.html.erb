@@ -1,0 +1,77 @@
+
+
+<div class="index-container" style="width:60%; margin: 50px auto;">
+    <h2><i class="fas fa-pen">イベント新規登録</i></h2><br>
+
+    <%= form_for(@event, url:events_path) do |f| %>
+     <%= render 'layouts/error_messages', resource: @event %>
+
+
+
+   <table class="table table-bordered">
+      <tr>
+          <th>イベント画像</th>
+          <td><%= f.attachment_field :image ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>イベント名</th>
+          <td><%= f.text_field :title ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>アーティスト名</th>
+          <td><%= f.text_field :artist ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>イベント説明</th>
+          <td><%= f.text_area :Introduction ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>開催期間</th>
+          <td><%= f.date_select :start_date ,use_month_numbers: true ,date_separator: '/' ,class: "form-control offset-6 col-6" %><br>
+          <%= f.date_select :end_date , use_month_numbers: true ,date_separator: '/' ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>開催時間</th>
+          <td><%= f.time_select :StartTime,minute_step: 15,class: "form-control offset-6 col-6" %>〜
+          <%= f.time_select :EndTime ,minute_step: 15,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>開催場所</th>
+          <td><%= f.text_field :place ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+
+      <tr>
+          <th>住所</th>
+          <td><%= f.text_field :address ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>イベントURL</th>
+          <td><%= f.text_field :event_url ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>料金</th>
+          <td><%= f.text_field :price ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>開催ステータス</th>
+          <td><%= f.select :hold_status, [['開催予定', 0], ['開催中', 1],['開催終了', 2]],class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+
+   </table>
+         <%= f.submit "登録する", class:"btn btn-primary btn-md" %>
+     <% end %>
+
+</div>
+
+

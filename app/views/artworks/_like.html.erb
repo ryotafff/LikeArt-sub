@@ -1,0 +1,10 @@
+<% if artwork.liked_by?(current_user) %>
+	<%= link_to artwork_likes_path(artwork), method: :delete, remote: true do %>
+		<h4><i class="glyphicon glyphicon-heart"style="color: #F96167"><%= artwork.likes.count%></i></h4>
+	<% end %>
+<% else %>
+	<%= link_to artwork_likes_path(artwork), method: :post , remote: true do %>
+	    <h4><i class="far fa-heart"style="color: #F96167"><%= artwork.likes.count %></i></h4>
+	<% end %>
+<% end %>
+

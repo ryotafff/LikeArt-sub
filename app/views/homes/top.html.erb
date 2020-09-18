@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col no-gutters">
+      <div id="container-bg">
+        <div id="theTarget">
+          <div class="image1"></div>
+          <div class="image2"></div>
+          <div class="image3"></div>
+          <div class="image4"></div>
+          <div class="image5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+	<div style = "text-align: center">
+				<h1 class="form-title">
+					Welcome to Like Art!
+				</h1>
+
+			<p class="introduction-text">
+			   当サイトはアートイベントやアート作品の投稿・閲覧をお楽しみいただけます!<br>
+				初めての方はまずは下記『About』にて、詳しい説明をご確認ください!
+			</p>
+            <br><br>
+
+			<div class="top-contents">
+
+					<div class="top-content-top-event">
+						<div class="top-content-text">
+							<span>[Event]<br></span>
+							<%= link_to	"~アートイベントの投稿・閲覧~" ,events_path %>
+						</div>
+					</div>
+
+					<div class="top-content-top-about">
+						<div class="top-content-text">
+								<span>[About]<br></span>
+							<%= link_to	"~Like Artの紹介~", users_about_path %>
+						</div>
+					</div>
+
+					<div class="top-content-top-artwork">
+						<div class="top-content-text">
+								<span>[Artwork]<br></span>
+							<%= link_to	"~アート作品の投稿・閲覧~" ,artworks_path %>
+						</div>
+			        </div>
+		    </div>
+	</div>
+</div>
+
+<br>
+<br>

@@ -1,0 +1,43 @@
+
+<div class="index-container" style="width:60%; margin: 50px auto;">
+
+    <h2>作品登録</h2><br>
+
+    <%= form_for(@artwork, url:artworks_path) do |f| %>
+    <%= render 'layouts/error_messages', resource: @artwork %>
+
+   <table class="table table-bordered">
+      <tr>
+          <th>作品画像</th>
+          <td><%= f.attachment_field :image ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>作品名</th>
+          <td><%= f.text_field :title ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>アーティスト名</th>
+          <td><%= f.text_field :artist_name ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+      <tr>
+          <th>作品説明</th>
+          <td><%= f.text_area :Introduction ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+
+      <tr>
+          <th>タグ (間にはカンマ , をつけて下さい)</th>
+          <td><%= f.text_field :tag_list ,value: @artwork.tag_list.join(',') ,class: "form-control offset-6 col-6" %></td>
+      </tr>
+
+
+   </table>
+         <%= f.submit "登録する", class:"btn btn-primary btn-md" %>
+     <% end %>
+
+</div>
+
+

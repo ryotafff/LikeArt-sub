@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+
+  <h2><i class="fas fa-paint-brush">作品一覧</i></h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>作品写真</th>
+            <th>作品名</th>
+            <th>作者</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @artworks.each do |artwork| %>
+            <tr>
+              <td><%= attachment_image_tag(artwork, :image, :fill, 50, 50, fallback: "no_image.jpg",size:'50x50') %></td>
+              <td><%=artwork.title %></td>
+              <td><%=artwork.artist_name %></td>
+            <td><%= link_to "詳細", admins_artwork_path(artwork), class: "btn btn-primary " %></td>
+          </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

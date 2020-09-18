@@ -1,0 +1,31 @@
+<%= render "layouts/flash" %>
+<%= render "events/mapall" %>
+
+<h3><i class="fas fa-pen"><%= link_to 'イベント新規登録', new_event_path %></i></h3>
+
+
+ <div class="container" style="padding-bottom: 100px;">
+ 	<div class="row">
+	 	<div class="event-contents"  style="padding-top: 20px ">
+	 		<h2 class="event-title"><i class="fas fa-calendar-alt">イベント一覧</i></h2>
+	 		<div class="event-content">
+				<% @events.each do |event| %>
+					<figure class="box" style="float:left; margin-right:30px; margin-bottom: 30px;">
+		                <p><%= attachment_image_tag(event, :image, fallback: "no_image.jpg", size:'300x200') %></p>
+		                <div class ="event-box">
+			 				<h4><%= link_to event.title ,event_path(event) %></h4>
+			 				<p><%=event.artist %></p>
+			 				<div class ="comment-like">
+			 				<p class ="event-comment-count"><i class="fas fa-comment"><%=event.post_comments.size %></i>
+			 				<p class ="event-like-count"><i class="fas fa-heart"><%=event.likes.size %></i>
+			 			    </div>
+			 				<p><%=event.start_date %> ～ <%=event.end_date %></p>
+			 			</div>
+	 				</figure>
+	            <% end %>
+	            <%= paginate @events %>
+	        </div>
+	    </div>
+    </div>
+</div>
+

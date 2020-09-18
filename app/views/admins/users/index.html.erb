@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2><i class="fas fa-user"></i> 会員一覧</h2>
+      <br>
+	    <!--会員一覧 -->
+		  <table class="table table-hover">
+		  	<thead>
+		  	  <tr class="active">
+                <th>会員ID</th>
+		        <th>氏名</th>
+		        <th>メールアドレス</th>
+		        <th></th>
+		        <th></th>
+	          </tr>
+	        </thead>
+	        <tbody>
+              <% @users.each do |user| %>
+			    <tr>
+				    <td><%= user.id %></td>
+				    <td><%= user.name %></td>
+	                <td><%= user.email %></td>
+			        <td><%= link_to "詳細", admins_user_path(user.id) ,class: "btn btn-primary" %></td>
+			        <td><%= link_to "編集", edit_admins_user_path(user.id) ,class: "btn btn-success" %></td>
+		        </tr>
+			  <% end %>
+		    </table>
+	   </div>
+    </div>
+</div>

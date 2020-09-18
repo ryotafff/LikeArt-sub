@@ -1,0 +1,74 @@
+<%= render "layouts/flash" %>
+
+
+<div class="container takasa">
+  <h2><i class="fas fa-paint-brush">作品詳細</i></h2>
+
+
+  <div class="row">
+	    <div class="col-xs-4">
+	     <%= attachment_image_tag(@artwork, :image, :fill, 300, 300, fallback: "no_image.jpg", size:'300x300') %><br><br>
+	      <% if current_user == @artwork.user %>
+	        <%= link_to '編集する',edit_artwork_path, class: "btn btn-primary "%>
+	        <%= link_to "削除する", artwork_path(@artwork), class:"btn btn-danger btn-md", method: :delete %>
+          <% end %><br>
+
+            <div class="like-user">
+            	<!-- いいね表示 -->
+				<div id="likes_buttons_<%= @artwork.id %>">
+                   <%= render partial: 'artworks/like', locals: { artwork: @artwork} %>
+                 </div>
+				<!-- いいね表示 -->
+
+                <%= link_to user_path(@artwork.user) do %>
+				<h4 style="margin-left: 15px"><i class="fas fa-user">投稿者:<%= @artwork.user.name %></i></h4>
+				<% end %>
+		    </div>
+	    </div>
+
+
+	    <div class="col-lg-6">
+	        <table class="table table-bordered">
+
+		        <tr>
+		            <th>作品名</th>
+		            <td><%= @artwork.title %></td>
+		        </tr>
+
+		        <tr>
+		            <th>アーティスト名</th>
+		            <td><%= @artwork.artist_name %></td>
+		        </tr>
+
+	            <tr>
+		            <th>タグ</th>
+		            <td><% @artwork.tag_list.each do |tag| %>
+                        <span class="label label-primary"><%= link_to tag ,tag_path(tag),:style=>"color:white" %></span>
+                        <% end %>
+                    </td>
+		        </tr>
+            </table>
+
+            <table class="table table-bordered">
+            	<h5 class="artwork-introduction">作品説明</h5>
+	            <tr>
+		          <td><%= @artwork.Introduction %></td>
+			    </tr>
+		     </table>
+
+           <br>
+           <br>
+           <br>
+           <div id="comments_area">
+              <%= render 'comment', post_comments: @artwork.post_comments %>
+           </div>
+
+           <div id="form_area">
+              <%= render 'form' %>
+            </div><br><br>
+
+
+
+	    </div>
+    </div>
+</div>

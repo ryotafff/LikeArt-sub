@@ -1,0 +1,35 @@
+// Place all the styles related to the Artworks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.artwork-title{
+  border-bottom: 2px solid #F96167;
+}
+
+.artwork-introduction{
+  font-weight: bold;
+}
+
+.art{
+ margin-left: 10px
+}
+
+.like-user{
+  margin-top: 20px;
+  display: flex;
+}
+
+.comment-like{
+  display: flex;
+}
+
+.art-comment-count{
+  color: navy;
+  margin-left: 15px;
+}
+
+.art-like-count{
+  color: #F96167;
+  margin-left:15px;
+}

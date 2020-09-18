@@ -1,0 +1,44 @@
+<%= render "layouts/flash" %>
+<div class="container takasa">
+
+  <h2 class="user-edit"><i class="fas fa-user-edit">マイページ編集</i></h2>
+
+  <%= form_for (@user) do |f| %>
+
+	  <%= render 'layouts/error_messages', resource: @user %>
+
+     <!-- 画像選択欄 -->
+    <div class="row">
+      <div class="col-xs-4">
+        <%= attachment_image_tag @user, :profile_image, size: "200x200",  fallback: "no_image.jpg"%><br>
+        <label>プロフィール写真</label>
+        <%= f.attachment_field :profile_image %>
+      </div>
+
+      <!-- マイページ編集フォーム -->
+      <div class="col-lg-6">
+         <table class="table table-bordered">
+
+            <tr>
+                <th>名前</th>
+                <td><%= f.text_field :name ,class: "form-control offset-6 col-6" %></td>
+            </tr>
+
+            <tr>
+                <th>メールアドレス</th>
+                <td><%= f.text_field :email ,class: "form-control offset-6 col-6" %></td>
+            </tr>
+
+            <tr>
+                <th>自己紹介</th>
+                <td><%= f.text_area :biography ,class: "form-control offset-6 col-6" %></td>
+            </tr>
+          </table>
+
+          <div class="text-right"><%= f.submit :変更を保存, class: "btn btn-primary" %>
+          <% end %>
+          </div>
+
+      </div>
+    </div><br>
+</div>

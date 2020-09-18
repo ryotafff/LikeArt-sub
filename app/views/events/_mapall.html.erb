@@ -1,0 +1,60 @@
+
+<div id="map"></div>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+
+
+<script>
+    function initMap() {
+
+      //初期表示位置
+      var latlng = new google.maps.LatLng(35.68944,139.69167);
+      // //デザイン
+      // var styles = [
+      //      {
+      //       stylers: [
+      //        { "saturation": -95 },
+      //        { "lightness": -20 }
+      //       ]
+      //      }
+      //     ];
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          // styles: styles,
+          center: latlng
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+      //複数マーカー ここから
+    <% @events.each do |event| %>
+      (function(){
+        var contentString = "住所：<%= event.address %>";
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position:{lat: <%= event.latitude %>, lng: <%= event.longitude %>},
+            map: map,
+        });
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker, content);
+        });
+       })();
+      <% end %>
+      //複数マーカー ここまで
+}
+
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+

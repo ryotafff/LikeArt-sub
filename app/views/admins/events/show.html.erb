@@ -1,0 +1,84 @@
+
+<div class="container">
+  <h2><i class="fas fa-calendar-alt">イベント詳細</i></h2><br>
+   <div class="row">
+
+	    <div class="col-xs-4">
+	      <%= attachment_image_tag(@event, :image, :fill, 200, 200, fallback: "no_image.jpg" ,size:'200x200') %><br><br>
+	      <%= link_to '編集する',edit_admins_event_path, class: "btn btn-primary "%>
+	      <%= link_to "削除する", admins_event_path(@event), class:"btn btn-danger btn-md", method: :delete %>
+	    </div>
+
+
+
+	    <div class="col-xs-8">
+		    <table class="table table-bordered">
+
+		        <tr>
+		      	  <th>イベント名</th>
+		          <td><%= @event.title %></td>
+		        </tr>
+
+		        <tr>
+		       	  <th>アーティスト名</th>
+		          <td><%= @event.artist %></td>
+		        </tr>
+
+		        <tr>
+		          <th>イベント期間</th>
+		          <td><%= @event.start_date %>〜<%= @event.end_date %></td>
+		        </tr>
+
+
+               <tr>
+		          <th>開催時間</th>
+		          <td><%= @event.StartTime.strftime('%H:%M') %>〜<%= @event.EndTime.strftime('%H:%M') %></td>
+		        </tr>
+
+		        <tr>
+		          <th>開催場所</th>
+		          <td><%= @event.place %></td>
+		        </tr>
+
+
+		        <tr>
+		          <th>住所</th>
+		          <td><%= @event.address %></td>
+		        </tr>
+
+		        <tr>
+		          <th>イベントURL</th>
+		          <td><%= link_to @event.event_url , @event.event_url , target: :_blank %></td>
+		        </tr>
+
+		        <tr>
+		          <th>料金</th>
+		          <td><%= @event.price %>円</td>
+		        </tr>
+
+		        <tr>
+		          <th>開催ステータス</th>
+		          <td><%= @event.hold_status %></td>
+		        </tr>
+	        </table>
+
+		    <table class="table table-bordered">
+		    	<h5 class="event-introduction">イベント説明</h5>
+	            <tr>
+			      <td><%= @event.Introduction %></td>
+			    </tr>
+		     </table>
+
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

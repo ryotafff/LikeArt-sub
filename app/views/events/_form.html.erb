@@ -1,0 +1,9 @@
+ <!-- コメント送信フォーム -->
+	            <h3><i class="fas fa-pen-square">New Comment</i></h3>
+	            <div class="comment-form">
+			      <%= form_for [@event, @post_comment], remote: true do |f| %>
+			        <%= f.text_area :comment, size: "70x5" %>
+			        <%= f.submit '送信', class: "btn-sm btn-primary" %>
+			      <% end %>
+			    </div>
+  <!-- コメント送信フォーム -->

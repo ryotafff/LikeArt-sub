@@ -1,0 +1,91 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container-bg{
+  height: 500px;
+}
+.image1 {
+  background-image: image-url('art1.jpg');
+}
+.image2 {
+  background-image: image-url('art2.jpg');
+}
+.image3 {
+  background-image: image-url('art3.jpg');
+}
+.image4 {
+  background-image: image-url('art4.jpg');
+}
+.image5 {
+  background-image: image-url('art5.jpg');
+}
+
+.top-contents {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 150px;
+}
+.top-contents a:hover{
+  color: red;
+}
+
+.top-contents a{
+ color: red;
+}
+
+.top-contents a:visited{
+ color: red;
+}
+
+.top-content-text{
+ margin-top: 70px;
+ color:  red;
+ font-weight: 700;
+ font-size: 150%;
+}
+
+.top-content-top-event{
+ background-image: image-url('top1.jpg');
+ background-size: cover;
+  width: 30%;
+  height:200px;
+}
+
+.top-content-top-about{
+  background-image: image-url('top2.jpg');
+  background-size: cover;
+   width: 30%;
+  height:200px;
+}
+
+.top-content-top-artwork{
+  background-image: image-url('top3.jpg');
+  background-size: cover;
+   width: 30%;
+  height:200px;
+}
+
+
+.form-title{
+  font-weight: bold;
+}
+
+
+
+
+.about{
+  display: inline-block;
+  border-bottom: 2px solid #F96167;
+  font-size: 30px;
+}
+
+.about-container{
+  border: solid;
+  border-radius: 5px;
+}
+.about-title{
+  margin-left: 10px;
+}
+
+

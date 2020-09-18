@@ -1,0 +1,46 @@
+
+
+
+<div class="container takasa">
+
+  <h2><i class="fas fa-paint-brush">作品詳細</i></h2>
+
+
+   <div class="row">
+	    <div class="col-xs-4">
+	     <%= attachment_image_tag(@artwork, :image, :fill, 200, 200, fallback: "no_image.jpg",size:'200x200') %><br><br>
+	      <%= link_to '編集する',edit_admins_artwork_path(@artwork), class: "btn btn-primary "%>
+	      <%= link_to "削除する", admins_artwork_path(@artwork), class:"btn btn-danger btn-md", method: :delete %>
+	    </div>
+
+	    <div class="col-lg-6">
+	        <table class="table table-bordered">
+
+		        <tr>
+		            <th>作品名</th>
+		            <td><%= @artwork.title %></td>
+		        </tr>
+
+		        <tr>
+		            <th>アーティスト名</th>
+		            <td><%= @artwork.artist_name %></td>
+		        </tr>
+
+	            <tr>
+		            <th>タグ</th>
+		            <td><% @artwork.tag_list.each do |tag| %>
+	                       <span class="label label-primary"><%= tag %></span>
+	                    <% end %>
+	                </td>
+		        </tr>
+	        </table>
+
+             <table class="table table-bordered">
+            	<h5 class="artwork-introduction">作品説明</h5>
+	            <tr>
+		          <td><%= @artwork.Introduction %></td>
+			    </tr>
+		     </table>
+	    </div>
+    </div>
+</div>

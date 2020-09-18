@@ -1,0 +1,96 @@
+<%= render "layouts/flash" %>
+<div class="container" style="padding-bottom: 100px;">
+
+
+ <% if current_user != @user %>
+   <h1><i class="fas fa-user">User Page</i></h1>
+  <% else %>
+    <h1><i class="fas fa-user">My Page</i></h1>
+  <% end %>
+
+
+	<div class="row">
+	    <div class="col-xs-4">
+		  <%= attachment_image_tag(@user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg" ,size:'200x200',class: "img-circle pull-left profile-img") %>
+        </div>
+
+		<div class="col-lg-8 col-12">
+			<table class="table table-hover table-bordered">
+			    <tr>
+					<th>名前</th>
+					<th><%= @user.name %></th>
+				</tr>
+
+				<tr>
+					<th>自己紹介</th>
+					<th><%= @user.biography %></th>
+				</tr>
+                <tr>
+				    <th>follows</th>
+					<th><%= link_to @user.follower.count, user_follows_path(@user) %></th>
+				</tr>
+				<tr>
+					<th>followers</th>
+					<th><%= link_to @user.followed.count, user_followers_path(@user) %></th>
+				</tr>
+			</table>
+
+
+			<% if current_user != @user %>
+				<% if current_user.following?(@user) %>
+				<%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+			  <% else %>
+				<%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST, class: "btn btn-success" %>
+				<% end %>
+			<% end %>
+
+			<% if @user == current_user %>
+				  <%= link_to '',edit_user_path(@user),class: "col-lg-12 btn btn-default glyphicon glyphicon-wrench" %>
+			<% end %>
+        </div>
+        <br>
+        <br>
+
+
+		<div class="row" style="margin-top: 30px">
+			<div class="col-lg-12">
+		        <h3><i class="fas fa-paint-brush">ユーザー作品投稿</i></h3>
+		        <div class="artwork-contents"style="padding: 20px 0;">
+			 		<div class="artwork-content" style="border-bottom: 1px silver solid">
+						<% @artworks.each do |artwork| %>
+						     <figure class="box1" style="float:left;">
+				              <p><%= attachment_image_tag(artwork, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100') %></p>
+				 			  <p><%= link_to artwork.title ,artwork_path(artwork) %></p>
+				 			  <p><%=artwork.artist_name %></p>
+				 			</figure>
+			            <% end %>
+			        </div>
+			    </div>
+		    </div>
+		</div>
+
+
+
+        <div class="row" style="margin-top: 30px">
+			<div class="col-lg-12">
+		        <h3><i class="fas fa-calendar-alt">ユーザーイベント投稿</i></h3>
+		        <div class="event-contents"style="padding: 20px 0;">
+			 		<div class="event-content" style="border-bottom: 1px silver solid">
+						<% @events.each do |event| %>
+						     <figure class="box1" style="float:left;">
+				              <p><%= attachment_image_tag(event, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100') %></p>
+				 			  <p><%= link_to event.title ,event_path(event) %></p>
+		 			          <p><%=event.artist %></p>
+		 			          <p><%=event.start_date %> ～ <%=event.end_date %></p>
+				 			</figure>
+			            <% end %>
+			        </div>
+			    </div>
+		    </div>
+		</div>
+    </div>
+</div>
+
+
+
+
