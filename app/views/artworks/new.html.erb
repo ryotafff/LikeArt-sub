@@ -14,23 +14,23 @@
 
       <tr>
           <th>作品名</th>
-          <td><%= f.text_field :title ,class: "form-control offset-6 col-6" %></td>
+          <td><%= f.text_field :title ,:placeholder => "作品名"  ,class: "form-control offset-6 col-6" %></td>
       </tr>
 
       <tr>
           <th>アーティスト名</th>
-          <td><%= f.text_field :artist_name ,class: "form-control offset-6 col-6" %></td>
+          <td><%= f.text_field :artist_name, :placeholder => "アーティスト名" ,class: "form-control offset-6 col-6" %></td>
       </tr>
 
       <tr>
           <th>作品説明</th>
-          <td><%= f.text_area :Introduction ,class: "form-control offset-6 col-6" %></td>
+          <td><%= f.text_area :Introduction, :placeholder => "作品の説明や魅力やなど" ,class: "form-control offset-6 col-6" %></td>
       </tr>
 
 
       <tr>
           <th>タグ (間にはカンマ , をつけて下さい)</th>
-          <td><%= f.text_field :tag_list ,value: @artwork.tag_list.join(',') ,class: "form-control offset-6 col-6" %></td>
+          <td><%= f.text_field :tag_list ,value: @artwork.tag_list.join(',') , :placeholder => "現代アート,抽象画,ポップアート" ,class: "form-control offset-6 col-6" %></td>
       </tr>
 
 
