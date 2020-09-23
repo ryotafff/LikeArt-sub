@@ -10,9 +10,9 @@
      <!-- 画像選択欄 -->
     <div class="row">
       <div class="col-xs-4">
-        <%= attachment_image_tag @user, :profile_image, size: "200x200",  fallback: "no_image.jpg"%><br>
+        <%= attachment_image_tag @user, :profile_image, size: "200x200",  fallback: "no_image.jpg" ,class: "image" %><br>
         <label>プロフィール写真</label>
-        <%= f.attachment_field :profile_image %>
+        <%= f.attachment_field :profile_image , id: "user-image" %>
       </div>
 
       <!-- マイページ編集フォーム -->
