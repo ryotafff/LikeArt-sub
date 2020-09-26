@@ -2,6 +2,11 @@
 # アプリ名
 Like Art
 
+<img width="1669" alt="likeart-top" src="https://user-images.githubusercontent.com/66929863/94326674-8bb6ed80-ffe0-11ea-976d-c03e0f9765a8.png">
+
+
+
+
 ## :blue_book: サイト概要
 このサイトでは、アート好きな人たちが情報共有できるをテーマに、アートイベントやアート作品の情報共有ができます。気になったイベントや作品には、イイネやコメントをすることができ、ユーザー同士の交流が出来るSNSサイトです。
 
