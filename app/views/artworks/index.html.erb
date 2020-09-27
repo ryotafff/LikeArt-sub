@@ -1,9 +1,10 @@
 <%= render "layouts/flash" %>
 
-<h3><%= link_to '作品新規登録' , new_artwork_path , class:"fas fa-pen" %></h3>
+<h3><%= link_to '作品新規登録' , new_artwork_path , class:"fas fa-pen" %></h3><br>
 
+<!-- 検索フォーム -->
 <%= search_form_for @search do |f| %>
-  <%= f.search_field :title_or_artist_name_cont %>
+  <%= f.search_field :title_or_artist_name_cont , :placeholder => "作品名orアーティスト名" ,class:"form-control-search" %>
   <%= f.submit %>
 <% end %>
 
