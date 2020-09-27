@@ -7,6 +7,8 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.includes(:user, :post_comments, :likes).order(created_at: :desc).page(params[:page]).per(9)
     @artwork = Artwork.new
     @user = current_user
+    @search = Artwork.ransack(params[:q])
+    @artworks = @search.result.order(created_at: :desc).page(params[:page]).per(9)
     #タグ絞り込み
     if params[:tag]
       @artworks = Artwork.tagged_with("#{params[:tag]}").order(created_at: :desc).page(params[:page]).per(9)
