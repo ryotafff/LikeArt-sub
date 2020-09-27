@@ -2,7 +2,10 @@
 
 <h3><%= link_to '作品新規登録' , new_artwork_path , class:"fas fa-pen" %></h3>
 
-
+<%= search_form_for @search do |f| %>
+  <%= f.search_field :title_or_artist_name_cont %>
+  <%= f.submit %>
+<% end %>
 
 
  <div class="container" style="padding-bottom: 100px;">

@@ -7,6 +7,8 @@ class EventsController < ApplicationController
     @events = Event.where(hold_status: ["0","1"]).order(created_at: :desc).page(params[:page]).per(6) #where文で開催ステータスが開催中と開催予定のものだけ表示させる/6件ごとにページ作成
     @event = Event.new
     @user = current_user
+    @search = Event.ransack(params[:q])
+    @events = @search.result.order(created_at: :desc).page(params[:page]).per(6)
   end
 
 
