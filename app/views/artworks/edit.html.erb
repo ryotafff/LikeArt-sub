@@ -1,4 +1,4 @@
-<div class="container takasa">
+<div class="container" style=" margin: 50px auto;">
   <h2 class="edit-title"><i class="fas fa-edit">作品編集</i></h2>
 
   <%= form_for @artwork, url: {action:"update"} do |f| %>
@@ -10,7 +10,6 @@
       <%= attachment_image_tag @artwork, :image, size: "300x300",  fallback: "no_image.jpg" ,class: "image" %><br>
       <label>作品画像</label>
       <%= f.attachment_field :image, id: "artwork-image" %>
-
     </div>
     <!-- 作品編集フォーム -->
     <div class="col-lg-6">

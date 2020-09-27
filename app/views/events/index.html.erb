@@ -3,6 +3,11 @@
 
 <h3><i class="fas fa-pen"><%= link_to 'イベント新規登録', new_event_path %></i></h3>
 
+<%= search_form_for @search do |f| %>
+  <%= f.search_field :title_or_artist_cont %>
+  <%= f.submit %>
+<% end %>
+
 
  <div class="container" style="padding-bottom: 100px;">
  	<div class="row">
