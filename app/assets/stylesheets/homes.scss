@@ -74,20 +74,44 @@
 }
 
 
-
-
 .about{
   display: inline-block;
   border-bottom: 2px solid #F96167;
   font-size: 30px;
 }
 
-.about-container{
-  border: solid;
-  border-radius: 5px;
-}
 .about-title{
   margin-left: 10px;
+  border: solid;
+  border-width: thin;
+  text-align: center;
+}
+
+.about-content {
+    margin-top: 70px;
+    border-bottom: 1px solid #F96167;
+    padding-bottom: 10px;
 }
 
 
+.about-content1 {
+  border-bottom: 1px solid #F96167;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.about-content-event{
+  background-image: image-url('about-event.jpg');
+  background-size: cover;
+}
+
+.about-content-artwork{
+  background-image: image-url('about-art.jpg');
+  background-size: cover;
+}
+
+.about-content-user{
+  background-image: image-url('about-user.jpg');
+  background-size: cover;
+}

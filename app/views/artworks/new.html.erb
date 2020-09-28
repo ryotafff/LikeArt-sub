@@ -1,7 +1,7 @@
 
 <div class="container" style=" margin: 50px auto;">
 
-    <h2>作品登録</h2><br>
+    <h2 class="fas fa-pen">作品登録</h2><br>
 
     <%= form_for(@artwork, url:artworks_path) do |f| %>
     <%= render 'layouts/error_messages', resource: @artwork %>
@@ -29,7 +29,7 @@
 
           <tr>
             <th>作品説明</th>
-            <td><%= f.text_area :Introduction, :placeholder => "作品の説明や魅力やなど" ,class: "form-control offset-6 col-6" %></td>
+            <td><%= f.text_area :Introduction, :placeholder => "作品の説明や魅力など" ,class: "form-control offset-6 col-6" %></td>
           </tr>
 
           <tr>
