@@ -2,7 +2,7 @@ class Admins::ArtworksController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-  	@artworks = Artwork.all
+  	@artworks = Artwork.all.order(created_at: :desc)
   end
 
   def show
