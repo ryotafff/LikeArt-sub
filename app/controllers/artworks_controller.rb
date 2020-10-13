@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
   before_action :authenticate_user!,except: [:index]
-
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     # @artworks = Artwork.all
@@ -28,10 +28,6 @@ class ArtworksController < ApplicationController
 
 
   def edit
-    @artwork = Artwork.find(params[:id])
-    if @artwork.user != current_user
-      redirect_to artworks_path
-    end
   end
 
 
@@ -49,7 +45,6 @@ class ArtworksController < ApplicationController
 
 
   def update
-    @artwork = Artwork.find(params[:id])
     if @artwork.update(artwork_params)
       flash[:notice] = '作品を更新しました！'
       redirect_to artwork_path(@artwork)
@@ -61,7 +56,6 @@ class ArtworksController < ApplicationController
 
 
   def destroy
-    @artwork = Artwork.find(params[:id])
     @artwork.destroy
     redirect_to artworks_path
     flash[:notice] = '作品を削除しました。'
@@ -69,8 +63,16 @@ class ArtworksController < ApplicationController
 
 
   private
+
     def artwork_params
       params.require(:artwork).permit(:user_id, :title, :artist_name, :image ,:Introduction ,:tag_list)
+    end
+
+    def ensure_correct_user
+        @artwork = Artwork.find(params[:id])
+      unless @artwork.user == current_user
+          redirect_to artworks_path
+      end
     end
 
 

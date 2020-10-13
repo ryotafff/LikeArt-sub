@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!,except: [:index]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     # @events = Event.all
@@ -38,16 +39,10 @@ class EventsController < ApplicationController
 
 
   def edit
-    @event = Event.find(params[:id])
-    if @event.user != current_user
-      redirect_to events_path
-    end
   end
 
 
-
   def update
-       @event = Event.find(params[:id])
     if @event.update(event_params)
        flash[:notice] = 'イベントを更新しました！'
        redirect_to event_path(@event)
@@ -59,7 +54,6 @@ class EventsController < ApplicationController
 
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
     flash[:notice] = 'イベントを削除しました。'
@@ -70,6 +64,13 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:user_id, :title, :artist, :image ,:Introduction ,:start_date ,:end_date ,:place,:address,:event_url,:price,:latitude,:longitude,:StartTime,:EndTime ).merge(hold_status: params[:event][:hold_status].to_i)
+    end
+
+    def ensure_correct_user
+        @event = Event.find(params[:id])
+      unless @event.user == current_user
+          redirect_to events_path
+      end
     end
 
 end
