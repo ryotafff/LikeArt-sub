@@ -7,7 +7,7 @@
 		                <i class="fas fa-user"></i><%= post_comment.user.name %>
 		                <i class="fas fa-calendar-alt"></i><%= post_comment.created_at.to_s(:datetime_jp) %>
 		                <i class="fas fa-trash-alt"><% if current_user == post_comment.user %>
-					        <%= link_to '削除', event_post_comment_path(@event, post_comment),  method: :delete ,remote: true %></i>
+					        <%= link_to '削除', event_post_comment_path(@event, post_comment),  method: :delete ,remote: true, data: { confirm: '削除しますか？' } %></i>
 					        <% end %>
 	                    </td>
 	                    <td class="show-comment"><%= post_comment.comment %></td>

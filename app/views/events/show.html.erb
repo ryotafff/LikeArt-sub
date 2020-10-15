@@ -8,7 +8,7 @@
 	      <%= attachment_image_tag(@event, :image, :fill, 300, 300, fallback: "no_image.jpg", size:'200x200') %><br><br>
 	        <% if current_user == @event.user %>
 	          <%= link_to '編集する',edit_event_path, class: "btn btn-primary "%>
-	          <%= link_to "削除する", event_path(@event), class:"btn btn-danger btn-md", method: :delete %>
+	          <%= link_to "削除する", event_path(@event), class:"btn btn-danger btn-md", method: :delete, data: { confirm: '削除しますか？' } %>
             <% end %><br>
 
 

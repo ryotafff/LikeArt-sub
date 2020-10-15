@@ -20,7 +20,7 @@
         <tr>
           <th></th>
           <td><%= link_to "編集する", edit_admins_user_path(@user.id) ,class: "btn btn-success" %>
-              <%= link_to "削除する", admins_user_path(@user.id),class: "btn btn-danger", method: :delete %>
+              <%= link_to "削除する", admins_user_path(@user.id),class: "btn btn-danger", method: :delete , data: { confirm: '削除しますか？' } %>
               <%= link_to "会員一覧にもどる", admins_users_path ,class: "btn btn-info" %></td>
         </tr>
       </table>
