@@ -28,6 +28,12 @@
 
 
 ## :file_folder: 設計書
+・ER図
+https://app.diagrams.net/#G1lwmzKKbEHWdxphQF7SHNUX4SqtxaqcOR
+
+・画面遷移図
+https://app.diagrams.net/#G13PvLT5pHVhuNnsdU6qj9o1_dHm4nmBWN
+
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1OhR4E7AdWDi6kcaa-bjXITJLMXnpr1G8Yl5JWyhJCfI/edit#gid=0
