@@ -82,3 +82,4 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem "gmaps4rails"
 gem 'dotenv-rails'
 gem 'ransack'
+gem 'rails-i18n'

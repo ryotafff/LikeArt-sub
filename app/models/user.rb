@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   attachment :profile_image, destroy: false
 
-  validates :email, presence: { message: "メールアドレスを入力してください" }
-  validates :name, presence: { message: "名前を入力してください" }
+  validates :email, presence: true
+  validates :name, presence: true
 
 
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得

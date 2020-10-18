@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+      artwork:
+        image: 作品画像
+        title: 作品名
+        artist_name: アーティスト名
+        Introduction: 作品説明
+        tag_list: タグ
+
+      event:
+        title: イベント名
+        artist: アーティスト名
+        image: イベント画像
+        Introduction: イベントの説明
+        place: 開催場所
+        address: 住所
+        price: 料金
+
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
