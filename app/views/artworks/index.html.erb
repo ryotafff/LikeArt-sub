@@ -22,7 +22,7 @@
 		                    <div class ="art">
 			 				  <h4><%= link_to artwork.title ,artwork_path(artwork) %></h4>
 			 					<div class ="comment-like">
-			 					 	<p><%=artwork.artist_name %></p>
+			 					 	<p class="fas fa-user-alt"> <%=artwork.artist_name %></p>
 				 					<p class ="art-comment-count"><i class="fas fa-comment"><%=artwork.post_comments.size %></i></p>
 				 					<p class ="art-like-count"><i class="fas fa-heart"><%=artwork.likes.size %></i></p>
 				 				</div>
