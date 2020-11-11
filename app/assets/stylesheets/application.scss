@@ -23,8 +23,8 @@ header {
 }
 
 .nav-item{
- padding-right: 30px;
- padding-top: 30px;
+ padding-right: 20px;
+ padding-top: 20px;
 }
 
 
@@ -36,17 +36,12 @@ color:#9f385b;
 }
 
 
-
 .gnav a {
 color:black;
 }
 
 .gnav a:hover{
 color:#9f385b;
-}
-
-.gnav a:active {
-color:#8d6c95;
 }
 
 
@@ -95,13 +90,13 @@ footer {
 
 .gnav {
     display: flex;
-    height: 2rem;
-    margin: 0 auto;
+    height: 5rem;
+    margin: 20px auto;
     width: 1000px;
 }
 .gnav > li {/*親階層のみ幅を25%にする*/
     width: 25%;
-    padding-right: 30px;
+    padding-right: 20px;
     padding-top: 30px;
 }
 
@@ -120,6 +115,7 @@ footer {
     text-decoration: none;
     width: 100%;
 }
+
 /*子階層以降共通*/
 .gnav li li {
     height: 0;
