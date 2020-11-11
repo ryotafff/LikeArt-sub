@@ -31,12 +31,21 @@ header {
 a {
 color:black;
 }
-
 a:hover{
 color:#9f385b;
 }
 
-a:active {
+
+
+.gnav a {
+color:black;
+}
+
+.gnav a:hover{
+color:#9f385b;
+}
+
+.gnav a:active {
 color:#8d6c95;
 }
 
@@ -82,3 +91,58 @@ footer {
   border-width: thin;
   border-style: solid;
 }
+
+
+.gnav {
+    display: flex;
+    height: 2rem;
+    margin: 0 auto;
+    width: 1000px;
+}
+.gnav > li {/*親階層のみ幅を25%にする*/
+    width: 25%;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+/*全てのリスト・リンク共通*/
+.gnav li {
+    list-style: none;
+    position: relative;
+}
+.gnav li  {
+    background: #d3d3d3;
+    color: black;
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+/*子階層以降共通*/
+.gnav li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+.gnav li li  {
+    border-top: 1px solid #d3d3d3;
+}
+.gnav li:hover > ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+
+/*aの背景色を指定*/
+.gnav li:hover a {/*親階層*/
+    background: #d3d3d3;
+}
+.gnav li li a {/*子階層*/
+    background: #d3d3d3;
+}
+.gnav li li:hover a {
+    background: #d3d3d3;
+}
+
+

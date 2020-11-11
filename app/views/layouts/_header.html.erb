@@ -5,29 +5,29 @@
     <%= link_to image_tag('logo3.png', :size => '200x100'), '/' %>
     <!-- 各種リンク。管理者ログイン時と会員ログイン時、非ログイン時で表示切替。 -->
 
-      <ul class="nav navbar-nav navbar-right">
-        <!-- 管理者 -->
-        <% if admin_signed_in? %>
-          <div class="admin-message">管理者としてログインしています</div>
-          <li class="nav-item"><%= link_to '会員一覧', admins_users_path ,class: 'fas fa-users' %></li>
-          <li class="nav-item"><%= link_to 'イベント一覧', admins_events_path ,class: 'fas fa-calendar-alt' %></li>
-          <li class="nav-item"><%= link_to '作品一覧', admins_artworks_path ,class: 'fas fa-paint-brush' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt' %></li>
-        <!-- 会員 -->
-        <% elsif user_signed_in? %>
-          <li class="nav-item"><%= link_to 'About', users_about_path, class: 'fas fa-question-circle' %></li>
-          <li class="nav-item"><%= link_to 'マイページ', user_path(current_user.id), class: 'fas fa-user' %></li>
-          <li class="nav-item"><%= link_to 'イベント一覧', events_path, class: 'fas fa-calendar-alt' %></li>
-          <li class="nav-item"><%= link_to '作品一覧', artworks_path, class: 'fas fa-paint-brush' %></li>
-          <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt' %></li>
-        <!-- 非ログイン -->
-        <% else %>
-          <li class="nav-item"><%= link_to 'About', users_about_path, class: 'fas fa-question-circle' %></li>
-          <li class="nav-item"><%= link_to 'イベント一覧', events_path, class: 'fas fa-calendar-alt' %></li>
-          <li class="nav-item"><%= link_to '作品一覧', artworks_path, class: 'fas fa-paint-brush' %></li>
-          <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-edit' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'fas fa-sign-in-alt' %></li>
-        <% end %>
-      </ul>
+
+    <ul class="gnav navbar-right">
+      <li class="nav-item"><%= link_to 'About', users_about_path, class: 'fas fa-question-circle' %></li>
+
+      <li>
+        <i class="fas fa-map-pin">イベント</i>
+          <ul>
+            <li><%= link_to 'イベント一覧', events_path, class: 'fas fa-calendar-alt' %></li>
+            <li><%= link_to '新規登録', new_event_path ,class:"fas fa-pen" %></li>
+          </ul>
+      </li>
+
+      <li>
+        <a href=""><i class="fas fa-paint-brush">作品</a></i>
+          <ul>
+            <li><%= link_to '作品一覧', events_path, class: 'fas fa-calendar-alt' %></li>
+            <li><%= link_to '新規登録', new_event_path ,class:"fas fa-pen" %></li>
+          </ul>
+      </li>
+
+
+      <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-edit' %></li>
+      <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'fas fa-sign-in-alt' %></li>
+    </ul>
   </nav>
 </header>
