@@ -2,24 +2,25 @@
 <%= render "layouts/flash" %>
 
 
-<!-- 検索フォーム -->
-<br>
-<br>
-<%= search_form_for @search do |f| %>
-  <%= f.search_field :title_or_artist_name_cont , :placeholder => "作品名orアーティスト名" ,class:"form-control-search" %>
-  <%= f.submit %>
-<% end %>
 
+<br>
+<br>
 
  <div class="container-fluid" style="padding-bottom: 100px;">
- 	<div class="row">
+ 	<div class="row" style="margin-left: 20px; margin-right: -15px;">
 	 	<div class="artwork-contents"  style="padding-top: 20px ">
-	 		<h2 class="artwork-title"><i class="fas fa-paint-brush">作品一覧</i></h2>
+	 		<!-- 検索フォーム -->
+	 		<%= search_form_for @search do |f| %>
+			  <%= f.search_field :title_or_artist_name_cont , :placeholder => "作品名orアーティスト名" ,class:"form-control-search" %>
+			  <%= f.submit %>
+			<% end %>
+			<!-- 検索フォーム -->
+	 		<h2 class="artwork-title"><i class="fas fa-paint-brush">作品一覧</i>
+	 		</h2>
 	 		    <div class="artwork-content">
 					<% @artworks.each do |artwork| %>
 						<figure class="box" style="float:left; margin-right:30px; margin-bottom: 30px;">
 		                    <p><%= attachment_image_tag(artwork, :image, :fill, 300, 200, fallback: "no_image.jpg", size:'300x200') %></p>
-
 		                    <div class ="art">
 			 				  <h4><%= link_to artwork.title ,artwork_path(artwork) %></h4>
 			 					<div class ="comment-like">
