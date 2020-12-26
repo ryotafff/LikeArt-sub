@@ -5,7 +5,6 @@
     <%= link_to image_tag('logo3.png', :size => '200x100'), '/' %>
     <!-- 各種リンク。管理者ログイン時と会員ログイン時、非ログイン時で表示切替。 -->
 
-
     <ul class="gnav navbar-right">
       <!-- 管理者 -->
         <% if admin_signed_in? %>
@@ -13,7 +12,6 @@
           <li class="nav-item"><%= link_to 'イベント一覧', admins_events_path ,class: 'fas fa-calendar-alt' %></li>
           <li class="nav-item"><%= link_to '作品一覧', admins_artworks_path ,class: 'fas fa-paint-brush' %></li>
           <li class="nav-item"><%= link_to '会員一覧', admins_users_path ,class: 'fas fa-users' %></li>
-          <li class="nav-item"><%= link_to 'About', users_about_path, class: 'fas fa-question-circle' %></li>
           <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'fas fa-sign-out-alt' %></li>
       <!-- 会員 -->
         <% elsif user_signed_in? %>
